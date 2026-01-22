@@ -1,0 +1,464 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* paleta de culori */
+:root {
+  --burgundy: #800020;
+  --burgundy-dark: #5a0015;
+  --burgundy-light: #a0002a;
+  --emerald: #014751;
+  --emerald-dark: #003338;
+  --emerald-light: #026b7a;
+  --bronze: #cd7f32;
+  --bronze-light: #d4a574;
+  --gold: #d4af37;
+  --gold-light: #e5c158;
+  --navy: #0a1929;
+  --navy-light: #1a2f4a;
+  --leather: #3d2817;
+  --mahogany: #4a1f1f;
+  --cream: #f5f1e8;
+  --paper: #f9f7f3;
+}
+
+@layer base {
+  * {
+    @apply font-serif;
+  }
+
+  body {
+    @apply antialiased;
+    font-family: "Cormorant Garamond", serif;
+    background-color: var(--cream);
+    color: var(--navy);
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 98px,
+        rgba(138, 104, 80, 0.03) 100px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 98px,
+        rgba(138, 104, 80, 0.03) 100px
+      );
+  }
+
+  /* Typography System - UI Design Principles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive: 32px - 48px */
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem); /* 28px - 36px */
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 1.875rem); /* 24px - 30px */
+    line-height: 1.3;
+    letter-spacing: 0.015em;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem); /* 20px - 24px */
+    line-height: 1.35;
+  }
+
+  /* Body text optimization */
+  body {
+    font-size: 1rem; /* 16px base */
+    line-height: 1.7; /* Optimal for readability */
+    letter-spacing: 0.01em;
+  }
+
+  /* Paragraph spacing */
+  p {
+    margin-bottom: 1.25rem; /* 20px */
+    line-height: 1.7;
+  }
+
+  /* Small text */
+  small,
+  .text-sm {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.6;
+  }
+
+  /* Large text */
+  .text-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.7;
+  }
+
+  /* Extra large text */
+  .text-xl {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.6;
+  }
+
+  /* Section spacing - UI Design Principle */
+  section,
+  .section {
+    margin-bottom: clamp(3rem, 8vw, 5rem); /* Responsive: 48px - 80px */
+  }
+
+  /* Consistent spacing between elements */
+  .space-y-section > * + * {
+    margin-top: clamp(2rem, 5vw, 3rem); /* 32px - 48px */
+  }
+
+  /* Improved contrast for better readability */
+  .text-navy\/80 {
+    color: rgba(10, 25, 41, 0.85); /* Increased from 80% to 85% for better contrast */
+  }
+
+  .text-cream\/90 {
+    color: rgba(245, 241, 232, 0.95); /* Increased from 90% to 95% for better contrast */
+  }
+}
+
+@layer components {
+  /* stilizare carduri cu efecte si de toate */
+  .card {
+    @apply relative overflow-hidden transition-all duration-500;
+    background: linear-gradient(145deg, #ffffff 0%, #f5f1e8 100%);
+    border: 2px solid var(--bronze);
+    border-radius: 8px;
+    padding: clamp(1.5rem, 4vw, 2rem); /* Responsive padding: 24px - 32px */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(138, 104, 80, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  /* Card content spacing */
+  .card > * + * {
+    margin-top: 1.25rem; /* 20px spacing between card elements */
+  }
+
+  .card h2,
+  .card h3 {
+    margin-bottom: 0.75rem; /* 12px */
+  }
+
+  .card p {
+    margin-bottom: 1rem; /* 16px */
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--gold) 0%,
+      var(--bronze) 50%,
+      var(--gold) 100%
+    );
+    opacity: 0.6;
+  }
+
+  .card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2),
+      0 5px 15px rgba(138, 104, 80, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  /* buton principal */
+  .btn-primary {
+    @apply relative px-8 py-4 font-semibold uppercase tracking-wider transition-all duration-300;
+    font-family: "Cinzel", serif;
+    font-size: 0.9rem;
+    background: linear-gradient(
+      145deg,
+      var(--burgundy) 0%,
+      var(--burgundy-dark) 100%
+    );
+    color: var(--cream);
+    border: 2px solid var(--burgundy-dark);
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(128, 0, 32, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(
+      145deg,
+      var(--burgundy-light) 0%,
+      var(--burgundy) 100%
+    );
+    box-shadow: 0 12px 30px rgba(128, 0, 32, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 20px rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* buton secundar */
+  .btn-secondary {
+    @apply relative px-8 py-4 font-semibold uppercase tracking-wider transition-all duration-300;
+    font-family: "Cinzel", serif;
+    font-size: 0.9rem;
+    background: linear-gradient(
+      145deg,
+      var(--emerald) 0%,
+      var(--emerald-dark) 100%
+    );
+    color: var(--cream);
+    border: 2px solid var(--emerald-dark);
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(1, 71, 81, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background: linear-gradient(
+      145deg,
+      var(--emerald-light) 0%,
+      var(--emerald) 100%
+    );
+    box-shadow: 0 12px 30px rgba(1, 71, 81, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 20px rgba(1, 71, 81, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* background pt pagina */
+  .page-background {
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .page-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at top,
+        rgba(61, 40, 23, 0.2) 0%,
+        transparent 70%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(10, 25, 41, 0.3) 0%,
+        rgba(61, 40, 23, 0.4) 100%
+      );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .page-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(138, 104, 80, 0.02) 2px,
+      rgba(138, 104, 80, 0.02) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* frame stilizat pt elemente din pagina */
+  .ornamental-frame {
+    position: relative;
+    padding: 1.5rem;
+    border: 4px double var(--bronze);
+    border-radius: 4px;
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(245, 241, 232, 0.95) 100%
+    );
+    box-shadow: inset 0 0 30px rgba(205, 127, 50, 0.1),
+      0 0 0 1px var(--bronze-light), 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 640px) {
+    .ornamental-frame {
+      padding: 1rem;
+    }
+  }
+
+  .ornamental-frame::before,
+  .ornamental-frame::after {
+    content: "◆";
+    position: absolute;
+    color: var(--bronze);
+    font-size: 1.5rem;
+    opacity: 0.6;
+  }
+
+  .ornamental-frame::before {
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .ornamental-frame::after {
+    bottom: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* efecte pt texte */
+  .luxury-text {
+    background: linear-gradient(
+      135deg,
+      var(--burgundy) 0%,
+      var(--emerald) 50%,
+      var(--burgundy) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* animarie de fade in */
+  .fade-in {
+    opacity: 1;
+  }
+
+  /* efect glowwwwww */
+  .glow {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4),
+      0 0 40px rgba(212, 175, 55, 0.2), 0 0 60px rgba(212, 175, 55, 0.1);
+  }
+
+  /* alta stilizare de background */
+  .leather-bg {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--leather) 0px,
+        var(--leather) 2px,
+        #2a1c10 2px,
+        #2a1c10 4px
+      ),
+      linear-gradient(135deg, var(--leather) 0%, #2a1c10 100%);
+    background-size: 40px 40px, 100% 100%;
+  }
+
+  /* tot pt background*/
+  .mahogany-bg {
+    background: linear-gradient(
+        90deg,
+        var(--mahogany) 0%,
+        #5d2a2a 50%,
+        var(--mahogany) 100%
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0, 0, 0, 0.1) 3px,
+        rgba(0, 0, 0, 0.1) 6px
+      );
+    background-blend-mode: overlay;
+  }
+
+  .metallic-accent {
+    background: linear-gradient(
+      135deg,
+      var(--gold) 0%,
+      var(--bronze) 50%,
+      var(--gold) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider-luxury {
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--bronze) 20%,
+      var(--gold) 50%,
+      var(--bronze) 80%,
+      transparent 100%
+    );
+    position: relative;
+    margin: 2rem 0;
+  }
+
+  .divider-luxury::before {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--cream);
+    padding: 0 1rem;
+    color: var(--bronze);
+    font-size: 1.2rem;
+  }
+}
