@@ -15,7 +15,7 @@ const Education = () => {
       description: t.education.cnet.description,
       mapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.1234567890!2d23.275556!3d45.033333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDAyJzAwLjAiTiAyM8KwMTYnMzIuMCJF!5e0!3m2!1sen!2sro!4v1234567890",
-      image: "/src/galerie/cnet.jpg",
+      image: "/galerie/cnet.jpg",
       websiteUrl: "https://www.ecat.ro/",
     },
     {
@@ -25,7 +25,7 @@ const Education = () => {
       description: t.education.upt.description,
       mapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.1234567890!2d21.228331!3d45.748871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4745678901234567%3A0x1234567890abcdef!2sPolitehnica%20University%20Timisoara!5e0!3m2!1sen!2sro!4v1234567890",
-      image: "/src/galerie/upt.png",
+      image: "/galerie/upt.png",
       websiteUrl: "https://www.etc.upt.ro",
     },
     {
@@ -35,7 +35,7 @@ const Education = () => {
       description: t.education.sda.description,
       mapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.1234567890!2d21.228331!3d45.748871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQ0JzU2LjAiTiAyMcKwMTMnNDIuMCJF!5e0!3m2!1sen!2sro!4v1234567890",
-      image: "/src/galerie/sda.png",
+      image: "/galerie/sda.png",
       websiteUrl: "https://sdacademy.ro/",
     },
   ];

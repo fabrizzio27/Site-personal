@@ -109,7 +109,7 @@ const About = () => {
             <div className="ornamental-frame h-full p-6">
               <div className="aspect-square rounded-lg overflow-hidden border-2 border-bronze/50 relative">
                 <img
-                  src="/src/galerie/hella.jpg"
+                  src="/galerie/hella.jpg"
                   alt="HELLA FORVIA Experience"
                   className="w-full h-full object-cover"
                   onError={(e) => {

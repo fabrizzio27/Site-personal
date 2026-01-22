@@ -54,17 +54,17 @@ const Home = () => {
             <div className="ornamental-frame p-6">
               <div className="relative aspect-square rounded-lg overflow-hidden border-2 border-bronze/50">
                 <img
-                  src="/src/galerie/pozaptproiectTMM.jpg"
+                  src="/galerie/pozaptproiectTMM.jpg"
                   alt="Profile"
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    if (e.target.src.includes("src/pozaptproiectTMM.jpg")) {
+                    if (e.target.src.includes("pozaptproiectTMM.jpg")) {
                       e.target.style.display = "none";
                       const parent = e.target.parentElement;
                       parent.innerHTML =
                         '<div class="w-full h-full flex items-center justify-center"><span class="text-gold font-elegant font-bold text-6xl tracking-widest">AF</span></div>';
                     } else {
-                      e.target.src = "/src/galerie/pozaptproiectTMM.jpg";
+                      e.target.src = "/galerie/pozaptproiectTMM.jpg";
                     }
                   }}
                 />

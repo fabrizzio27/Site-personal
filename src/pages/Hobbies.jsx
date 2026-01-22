@@ -11,13 +11,13 @@ const Hobbies = () => {
       id: 1,
       title: t.hobbies.gym.title,
       description: t.hobbies.gym.description,
-      image: "/src/galerie/gym.webp",
+      image: "/galerie/gym.webp",
     },
     {
       id: 2,
       title: t.hobbies.football.title,
       description: t.hobbies.football.description,
-      image: "/src/galerie/messi.webp",
+      image: "/galerie/messi.webp",
     },
   ];
 
