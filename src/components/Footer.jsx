@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations/translations";
 import { Instagram, Facebook, Linkedin, Github } from "lucide-react";
@@ -64,24 +65,24 @@ const Footer = () => {
               {language === "ro" ? "Linkuri rapide" : "Quick Links"}
             </h3>
             <div className="flex flex-col space-y-3">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-base text-cream hover:text-gold transition-colors duration-300 font-serif border-l-2 border-transparent hover:border-bronze pl-2 leading-relaxed"
               >
-                Home
-              </a>
-              <a
-                href="/despre"
+                {t.nav.home}
+              </Link>
+              <Link
+                to="/despre"
                 className="text-base text-cream hover:text-gold transition-colors duration-300 font-serif border-l-2 border-transparent hover:border-bronze pl-2 leading-relaxed"
               >
                 {t.nav.about}
-              </a>
-              <a
-                href="/contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="text-base text-cream hover:text-gold transition-colors duration-300 font-serif border-l-2 border-transparent hover:border-bronze pl-2 leading-relaxed"
               >
                 {t.nav.contact}
-              </a>
+              </Link>
             </div>
           </div>
 
